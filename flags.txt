@@ -1,0 +1,2 @@
+FUNCTION: sum_function | STALE: TRUE | TIME BEHIND: 0:01:58 | LAST DOC COMMIT: 150d7ef6 | CODE UPDATED BY: aliabd
+FUNCTION: average_function | STALE: FALSE

@@ -49,13 +49,12 @@ def get_fn_lines():
                 code_end = next_fn_line - 1
 
         lines[fn_name] = {
-            "fn_line": fn_line + 1,
-            "doc_init": doc_init + 1,
-            "doc_end": doc_end + 1,
-            "code_init": code_init + 1,
-            "code_end": code_end + 1
+            "fn_line": fn_line,
+            "doc_init": doc_init,
+            "doc_end": doc_end,
+            "code_init": code_init,
+            "code_end": code_end
         }
-
     return lines
 
 
@@ -75,9 +74,9 @@ def run_flags():
         doc_output = output[lines[fn]["doc_init"]:lines[fn]["doc_end"]]
         code_output = output[lines[fn]["code_init"]:lines[fn]["code_end"]]
 
-        doc_output_dates = [" ".join(item.split(' ')[2:3]) for item in
+        doc_output_dates = [" ".join(item.split(' ')[2:4]) for item in
                             doc_output]
-        code_output_dates = [" ".join(item.split(' ')[2:3]) for item in
+        code_output_dates = [" ".join(item.split(' ')[2:4]) for item in
                              code_output]
         doc_output_dates = [convert_to_datetime(item) for item in
                             doc_output_dates]
@@ -128,5 +127,6 @@ def save_flags():
     with open(FLAGS_TEXT_PATH, 'w') as f:
         for item in text:
             f.write("%s\n" % item)
+
 
 save_flags()
