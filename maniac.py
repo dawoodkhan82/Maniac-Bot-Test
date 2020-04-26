@@ -23,14 +23,14 @@ def get_line_numbers(source):
             doc_lineno_start, doc_lineno_end = None, None
             code_lines = [body.lineno for body in node.body if not
             isinstance(body, ast.Expr)]
-            code_lineno_start, code_lineno_end = min(code_lines), \
-                                                 max(code_lines)
+            code_lineno_start, code_lineno_end = min(code_lines) - 1, \
+                                                 max(code_lines) - 1
 
             if (node.body and isinstance(node.body[0], ast.Expr) and
                     isinstance(node.body[0].value, ast.Str)):
-                doc_lineno_end = node.body[0].lineno
+                doc_lineno_end = node.body[0].lineno - 1
                 doc_lineno_start = doc_lineno_end - len(node.body[
-                                                0].value.s.splitlines()) + 1
+                                                0].value.s.splitlines())
             line_numbers[name] = {
                 "type": NODE_TYPES[(type(node))],
                 "function_lineno": function_lineno,
@@ -60,38 +60,63 @@ def run_flags(source):
 
     flags = {}
     for name in lines.keys():
-        if output[lines[name]["doc_lineno_start"]]:
-            doc_output = output[lines[name]["doc_lineno_start"]:lines[name][
-                "doc_lineno_end"]]
-            doc_output_dates = [" ".join(item.split(' ')[2:4]) for item in
-                                doc_output]
-            doc_output_dates = [convert_to_datetime(item) for item in
-                                doc_output_dates]
-            latest_doc_date = max(doc_output_dates)
+        if lines[name]["doc_lineno_start"]:
+            if lines[name]["doc_lineno_start"] == \
+                    lines[name]["doc_lineno_end"]:
+                doc_output = output[lines[name]["doc_lineno_start"]]
+                doc_output_dates = " ".join(doc_output.split(' ')[2:4])
+                latest_doc_date = convert_to_datetime(doc_output_dates)
+            else:
+                doc_output = output[lines[name]["doc_lineno_start"]:lines[name][
+                    "doc_lineno_end"]]
+                doc_output_dates = [" ".join(item.split(' ')[2:4]) for item in
+                                    doc_output]
+                doc_output_dates = [convert_to_datetime(item) for item in
+                                    doc_output_dates]
+                latest_doc_date = max(doc_output_dates)
         else:
             latest_doc_date = None
-        code_output = output[lines[name]["code_lineno_start"]:lines[name][
-            "code_lineno_end"]]
-        code_output_dates = [" ".join(item.split(' ')[2:4]) for item in
-                             code_output]
-        code_output_dates = [convert_to_datetime(item) for item in
-                             code_output_dates]
-        latest_code_date = max(code_output_dates)
+
+        if lines[name]["code_lineno_start"] == lines[name]["code_lineno_end"]:
+            code_output = output[lines[name]["code_lineno_start"]]
+            code_output_dates = " ".join(code_output.split(' ')[2:4])
+            latest_code_date = convert_to_datetime(code_output_dates)
+        else:
+            code_output = output[lines[name]["code_lineno_start"]:lines[name][
+                "code_lineno_end"]]
+            code_output_dates = [" ".join(item.split(' ')[2:4]) for item in
+                                 code_output]
+            code_output_dates = [convert_to_datetime(item) for item in
+                                 code_output_dates]
+            latest_code_date = max(code_output_dates)
+
         if not latest_doc_date:
             missing = True
             stale = True
             time_behind = None
             last_doc_commit = None
-            code_user = code_output[code_output_dates.index(
-                latest_code_date)].split(" ")[1][1:]
+            if lines[name]["code_lineno_start"] == \
+                    lines[name]["code_lineno_end"]:
+                code_user = code_output.split(" ")[1][1:]
+            else:
+                code_user = code_output[code_output_dates.index(
+                    latest_code_date)].split(" ")[1][1:]
         elif latest_code_date > latest_doc_date:
             stale = True
             missing = False
             time_behind = latest_code_date - latest_doc_date
-            last_doc_commit = doc_output[doc_output_dates.index(
-                latest_doc_date)].split(" ")[0]
-            code_user = code_output[code_output_dates.index(
-                latest_code_date)].split(" ")[1][1:]
+            if lines[name]["doc_lineno_start"] == \
+                    lines[name]["doc_lineno_end"]:
+                last_doc_commit = doc_output.split(" ")[0]
+            else:
+                last_doc_commit = doc_output[doc_output_dates.index(
+                    latest_doc_date)].split(" ")[0]
+            if lines[name]["code_lineno_start"] == \
+                    lines[name]["code_lineno_end"]:
+                code_user = code_output.split(" ")[1][1:]
+            else:
+                code_user = code_output[code_output_dates.index(
+                    latest_code_date)].split(" ")[1][1:]
         else:
             stale = False
             missing = False
@@ -114,26 +139,35 @@ def save_flags():
     with open(TEST_FILE_PATH) as fp:
         source = fp.read()
         flags = run_flags(source)
-        text = []
+        stale_docs, missing_docs, passed = [], [], []
         for fn in flags.keys():
             if flags[fn]["is_missing"]:
-                text.append(f"FUNCTION: {fn} | STALE: TRUE | DOCUMENTATION "
-                            f"MISSING "
-                            f"| CODE UPDATED BY: {code_user}")
+                missing_docs.append(f"{fn} |"
+                                    f" CODE UPDATED BY: {code_user}")
             elif flags[fn]["is_stale"]:
                 time_behind = flags[fn]["time_behind"]
                 last_doc_commit = flags[fn]["last_doc_commit"]
                 code_user = flags[fn]["code_user"]
 
-                text.append(f"FUNCTION: {fn} | STALE: TRUE | TIME BEHIND: "
+                stale_docs.append(f"{fn} | TIME BEHIND: "
                             f"{time_behind} | LAST DOC COMMIT: "
                             f"{last_doc_commit} "
                             f"| CODE UPDATED BY: {code_user}")
             else:
-                text.append(f"FUNCTION: {fn} | STALE: FALSE")
+                passed.append(f"{fn} ")
 
     with open(FLAGS_TEXT_PATH, 'w') as f:
-        for item in text:
+        f.write("STALE DOCSTRINGS:\n")
+        f.write("-"*len("STALE DOCSTRINGS:") + "\n")
+        for item in stale_docs:
+            f.write("%s\n" % item)
+        f.write("\nMISSING DOCSTRINGS:\n")
+        f.write("-" * len("MISSING DOCSTRINGS:") + "\n")
+        for item in missing_docs:
+            f.write("%s\n" % item)
+        f.write("\nUP TO DATE:\n")
+        f.write("-" * len("UP TO DATE:") + "\n")
+        for item in passed:
             f.write("%s\n" % item)
 
 
