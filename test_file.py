@@ -1,3 +1,8 @@
+"""
+Test file with sample functions
+"""
+
+
 def sum_function(a, b):
     """
     returns sum of a and b
@@ -17,4 +22,8 @@ def average_function(a, b):
     :return: average of a and b
     """
     c = (a**2 + b**2) / 2
+    return c
+
+
+def no_docs(c):
     return c
