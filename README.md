@@ -11,7 +11,7 @@ npm install
 # Run the bot
 npm start
 ```asdf
-asdf
+asdfasdf
 ## Contributing
 asdfasdfasdfasdf
 If you have suggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all and any contributionsasdf.
