@@ -8,7 +8,7 @@ asdf
 # Install dependencies
 npm install
 
-# Run the boasdft
+# Run the asdfboasdft
 npm start
 ```asdf
 asdfasdf
