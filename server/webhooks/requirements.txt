@@ -1,4 +1,0 @@
-Flask
-ipaddress
-requests
-pyOpenSSL==16.2.0
