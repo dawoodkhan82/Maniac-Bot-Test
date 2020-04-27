@@ -18,7 +18,7 @@ If you havasdfasdasdffe asdfsuggestions for how Maniac-Bot could be improved, or
 asdfasdf
 For morasdfeasfasasdffd, check out the [Contributing Guide](CONTRIBUTING.md).
 asdf
-## License
+## Licenseasdf
 
 [ISC](LICENSE) © 2020 Dawood Khan <dawoodkhan82@gmail.com>
 testtestresrtasdf
