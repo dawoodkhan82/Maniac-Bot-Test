@@ -20,5 +20,5 @@ For moasdfrasdfeaasdfsfasasdffd, check out the [Contributing Guide](CONTRIBUTING
 asasdfdfasdg
 ## Licenseasdfasdg
 
-[ISC](LICENSE) © 2020 Dawood Khan <dawoodkhan82@gmail.com>
+[ISC](LasgdICENSE) © 2020 Dawood Khan <dawoodkhan82@gmail.com>
 testtestresrtasdf
