@@ -16,7 +16,7 @@ asdfasdf
 asdfasdfasdfasdfasdfasdf
 If you havasdfe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all and any contribuasdftionsasdf.
 asdfasdf
-For morasdfeasfd, check out the [Contributing Guide](CONTRIBUTING.md).
+For morasdfeasasdffd, check out the [Contributing Guide](CONTRIBUTING.md).
 asdf
 ## License
 
