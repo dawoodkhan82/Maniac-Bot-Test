@@ -1,4 +1,5 @@
 # Maniac-Bot
+<<<<<<< HEAD
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that A Probot app
 
@@ -22,3 +23,5 @@ For more, check out the [Contributing Guide](CONTRIBUTING.md).
 
 [ISC](LICENSE) © 2020 Dawood Khan <dawoodkhan82@gmail.com>
 test
+=======
+>>>>>>> ab65e32ae8f4a86c1c61eefc82ebc839bea89bdf
