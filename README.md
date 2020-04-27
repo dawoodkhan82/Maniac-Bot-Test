@@ -18,7 +18,7 @@ If youasdg havasdfasasdasdggdfasdasdffe asdfsuggestions for how Maniac-Bot could
 asdfasasdgdf
 For moasdfrasdfeaasdfsfasasdffd, check out the [Contributing Guide](CONTRIBUTING.md).
 asasdfdfasdg
-## Licenseasdf
+## Licenseasdfasdg
 
 [ISC](LICENSE) © 2020 Dawood Khan <dawoodkhan82@gmail.com>
 testtestresrtasdf
