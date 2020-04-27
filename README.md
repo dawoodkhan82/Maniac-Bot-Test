@@ -8,7 +8,7 @@ asdf
 # Install dependencies
 npm install
 
-# Run the bot
+# Run the boasdft
 npm start
 ```asdf
 asdfasdf
