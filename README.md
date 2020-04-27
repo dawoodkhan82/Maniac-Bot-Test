@@ -14,7 +14,7 @@ npm start
 asdfasdf
 ## Contributing
 asdfasdfasdfasdfasdf
-If you havasdfe suggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all and any contributionsasdf.
+If you havasdfe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all and any contributionsasdf.
 asdf
 For morasdfe, check out the [Contributing Guide](CONTRIBUTING.md).
 asdf
