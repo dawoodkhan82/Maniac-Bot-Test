@@ -13,7 +13,7 @@ npm start
 ```asdf
 asdfasdfasdfg
 ## Contributingasdasgdf
-asdfasdfasdfasdfasasasdggdfasdf
+asdfasdfasdfasdfasasasgasdggdfasdf
 If youasdg haasdgvasdfasasdasdggdfasdasdffe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issueasg! We'd love all asasdfdfasasdfdfasdgand any contribuasdftionsasdf.
 asdfasasdgdf
 For moasdfrasdfeaasdfsfasasdffd, check out the [Contributing Guide](CONTRIBUTING.md).
