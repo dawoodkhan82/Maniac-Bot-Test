@@ -14,7 +14,7 @@ npm start
 asdfasdfasdfg
 ## Contributingasdasgdf
 asdfasdfasdfasdfasasasdggdfasdf
-If youasdg havasdfasasdasdggdfasdasdffe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all asasdfdfasasdfdfasdgand any contribuasdftionsasdf.
+If youasdg haasdgvasdfasasdasdggdfasdasdffe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all asasdfdfasasdfdfasdgand any contribuasdftionsasdf.
 asdfasasdgdf
 For moasdfrasdfeaasdfsfasasdffd, check out the [Contributing Guide](CONTRIBUTING.md).
 asasdfdfasdg
