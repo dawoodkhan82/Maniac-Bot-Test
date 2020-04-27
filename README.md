@@ -12,7 +12,7 @@ npm install
 npm start
 ```asdf
 asdfasdf
-## Contributing
+## Contributingasdf
 asdfasdfasdfasdfasdfasdf
 If you havasdfasdasdffe asdfsuggestions for how Maniac-Bot could be improved, or want to report a bug, open an issue! We'd love all asasdfdfasasdfdfand any contribuasdftionsasdf.
 asdfasdf
