@@ -1,12 +1,12 @@
 """
-Test
+Test: 
 """
 
 
 def sum_function(a, b):
     """
     returns sum of a and b
-    :param a: integer
+    :param a: array
     :param b: integer
     :return: sum of a and b
     """
