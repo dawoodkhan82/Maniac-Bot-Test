@@ -10,8 +10,8 @@ def sum_function(a, b):
     :param b: integer
     :return: sum of a and b
     """
-    ca = a * b
-    return ca
+    c = a * b
+    return c
 
 
 def average_function(a, b):
