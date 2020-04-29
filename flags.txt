@@ -1,6 +1,6 @@
 STALE DOCSTRINGS:
 -----------------
-sum_function | TIME BEHIND: 0:01:58 | LAST DOC COMMIT: 150d7ef6 | CODE UPDATED BY: aliabd
+sum_function | TIME BEHIND: 0:01:58 | LAST DOC COMMIT: 150d7ef6 | CODE UPDATED BY: dawoodkhan82
 
 MISSING DOCSTRINGS:
 -------------------
