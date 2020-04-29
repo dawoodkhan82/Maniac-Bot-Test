@@ -3,7 +3,7 @@ Test:
 """
 
 
-def sum_function(a, b):
+def sum_function(a, b, c):
     """
     returns sum of a and b
     :param a: array
