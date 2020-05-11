@@ -10,7 +10,7 @@ def sum_function(a, b, c):
     :param b: integer
     :return: sum of a and b
     """
-    c = a * b * a
+    c = a * a
     return c
 
 
