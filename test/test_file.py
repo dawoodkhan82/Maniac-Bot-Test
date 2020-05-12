@@ -9,6 +9,7 @@ def sum_function(a, b, c):
     :param a: array
     :param b: integer
     :return: sum of a and b
+    updated
     """
     c = a * b * a
     return c
