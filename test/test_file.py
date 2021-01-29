@@ -11,7 +11,7 @@ def sum_function(a, b, c):
     :return: sum of a and b
     change
     """
-    c = a 
+    c = a * b
     return c
 
 
